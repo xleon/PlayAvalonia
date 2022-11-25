@@ -1,0 +1,200 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:PlayAvalonia.ViewModels"
+    xmlns:controls="clr-namespace:PlayAvalonia.Controls"
+    x:DataType="viewModels:MainViewModel"
+    mc:Ignorable="d"
+    d:DesignWidth="700"
+    d:DesignHeight="750"
+    x:Class="PlayAvalonia.Views.MainView"
+    Foreground="White">
+
+    <Design.DesignStyle>
+        <Style Selector="Grid#MainGrid">
+            <Setter Property="Background" Value="{StaticResource MainBackgroundBrush}" />
+        </Style>
+    </Design.DesignStyle>
+
+    <Design.DataContext>
+        <viewModels:MainViewModel />
+    </Design.DataContext>
+
+    <Grid x:Name="MainGrid" ColumnDefinitions="Auto,*">
+
+        <!-- Main menu -->
+        <Grid Margin="50,50,50,50" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto">
+            <Grid.Styles>
+                <Style Selector="controls|IconButton">
+                    <Setter Property="Margin" Value="0,12" />
+                    <Setter Property="FontWeight" Value="Light" />
+                </Style>
+            </Grid.Styles>
+
+            <controls:AvatarProgress
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="0,30,0,40" />
+
+            <TextBlock
+                Grid.Row="1"
+                Text="Kamila"
+                MinWidth="120"
+                HorizontalAlignment="Left"
+                MaxLines="2"
+                TextWrapping="Wrap"
+                Margin="0,0,0,15"
+                FontWeight="DemiBold"
+                FontSize="28"
+                LineHeight="40" />
+
+            <controls:IconButton Grid.Row="2" Geometry="{StaticResource IconFavorite}" Text="Templates" />
+            <controls:IconButton Grid.Row="3" Geometry="{StaticResource IconCategories}" Text="Categories" />
+            <controls:IconButton Grid.Row="4" Geometry="{StaticResource IconChartPie}" Text="Analytics" />
+            <controls:IconButton Grid.Row="5" Geometry="{StaticResource IconGear}" Text="Settings" />
+
+            <Path
+                Grid.Row="7"
+                HorizontalAlignment="Left"
+                Margin="0,35"
+                Width="185"
+                Height="45"
+                Stretch="Fill"
+                Stroke="{StaticResource Secondary}"
+                StrokeThickness="3.5"
+                StrokeJoin="Round"
+                Data="M17 69.9894C17 69.9894 16.9637 61.2976 27.7755 61.774C38.5874 62.2505 32.9586 69.5056 54.2245 69.9894C75.4904 70.4732 65.7385 54.2324 82.6327 53.8747C99.5268 53.5169 95.6505 66.7036 109.082 61.774C122.513 56.8445 130.822 14.324 145.571 12.1664C160.321 10.0089 159.655 29.3871 169.816 37.7603C179.978 46.1334 188.834 38.3775 194.551 37.7603C200.268 37.1431 209 53.8747 209 53.8747">
+            </Path>
+
+            <TextBlock Grid.Row="8" Text="Good" FontSize="12" Margin="0,8"
+                       Foreground="{DynamicResource LightIconBrush}" />
+            <TextBlock Grid.Row="9" Text="Consistency" FontSize="20" />
+        </Grid>
+
+        <!-- Horizontal Category columns -->
+        <StackPanel
+            Grid.Column="1"
+            Orientation="Horizontal"
+            Spacing="20"
+            Margin="0,30">
+            <StackPanel.Styles>
+                <Style Selector="TextBlock">
+                    <Setter Property="Foreground" Value="#ACB4DC" />
+                    <Setter Property="FontSize" Value="13" />
+                </Style>
+                <Style Selector="TextBlock.H1">
+                    <Setter Property="Foreground" Value="#23325D" />
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="FontWeight" Value="Black" />
+                    <Setter Property="Margin" Value="30,0"/>
+                </Style>
+                <Style Selector="TextBlock.H2">
+                    <Setter Property="Foreground" Value="#23325D" />
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="FontWeight" Value="Medium" />
+                    <Setter Property="Margin" Value="0,7" />
+                    <Setter Property="MaxLines" Value="1" />
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+                </Style>
+                <Style Selector="TextBlock.H3">
+                    <Setter Property="LetterSpacing" Value="1.3" />
+                    <Setter Property="FontWeight" Value="DemiBold" />
+                    <Setter Property="Margin" Value="30,35,30,20" />
+                </Style>
+
+                <Style Selector="CheckBox.Task">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Border
+                                Name="border"
+                                Background="White"
+                                Padding="20,17"
+                                CornerRadius="15">
+                                <StackPanel Orientation="Horizontal" Spacing="18">
+                                    <Panel>
+                                        <Border
+                                            Name="CheckMarkCircle"
+                                            Width="24"
+                                            Height="24"
+                                            CornerRadius="12"
+                                            BorderBrush="{StaticResource Accent}"
+                                            BorderThickness="2" />
+                                        <PathIcon
+                                            Name="CheckMarkIcon"
+                                            IsVisible="False"
+                                            Data="{StaticResource IconCheck}"
+                                            Foreground="White"
+                                            Width="12"
+                                            Height="12" />
+                                    </Panel>
+                                    <TextBlock
+                                        Name="Text"
+                                        Text="{TemplateBinding Content}"
+                                        VerticalAlignment="Center"
+                                        Foreground="#3D4566"
+                                        FontSize="15"
+                                        FontWeight="Normal" />
+                                </StackPanel>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter>
+                </Style>
+                <Style Selector="CheckBox.Task:checked /template/ Border#CheckMarkCircle">
+                    <Setter Property="Background" Value="#D0DDFD" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+                <Style Selector="CheckBox.Task:checked /template/ PathIcon#CheckMarkIcon">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+                <Style Selector="CheckBox.Task:checked /template/ TextBlock#Text">
+                    <!-- Hack to workaround Strikethrough that doesn't work in macos: https://github.com/AvaloniaUI/Avalonia/issues/9521
+                    StrkeOffset should be changed manually when fontSize changes -->
+                    <Setter Property="TextDecorations">
+                        <TextDecorationCollection>
+                            <TextDecoration
+                                Location="Underline"
+                                StrokeOffset="-6"
+                                StrokeOffsetUnit="Pixel" />
+                        </TextDecorationCollection>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+
+            <!-- Vertical rounded column -->
+            <Border
+                CornerRadius="35"
+                Background="#F9FBFF"
+                Width="400"
+                VerticalAlignment="Top"
+                Padding="0,30"
+                ClipToBounds="True">
+                <StackPanel Spacing="0">
+                    <TextBlock Classes="H1" Text="What's up, Kamila!" />
+                    <TextBlock Classes="H3" Text="CATEGORIES" />
+                    
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <controls:TaskCategoryWidget/>
+                            <controls:TaskCategoryWidget/>
+                            <controls:TaskCategoryWidget/>
+                            <controls:TaskCategoryWidget/>
+                        </StackPanel>
+                    </ScrollViewer>
+  
+                    <TextBlock Classes="H3" Text="TODAY'S TASKS" />
+                    <StackPanel Spacing="6" Margin="30,0">
+                        <CheckBox Classes="Task" Content="Learn Avalonia" IsChecked="True" />
+                        <CheckBox Classes="Task" Content="Build a todo app UI" />
+                        <CheckBox Classes="Task" Content="Add persistance layer" />
+                        <CheckBox Classes="Task" Content="Make this thing work" />
+                        <CheckBox Classes="Task" Content="Meditation" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

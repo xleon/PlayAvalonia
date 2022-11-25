@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:PlayAvalonia"
+             x:Class="PlayAvalonia.App">
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+    
+    <Application.Resources>
+        <SolidColorBrush x:Key="Accent" Color="#DA10F5"/>
+        <SolidColorBrush x:Key="Secondary" Color="#0974FA"/>
+        <SolidColorBrush x:Key="MainBackgroundBrush" Color="#031956"/>
+        <SolidColorBrush x:Key="LightIconBrush" Color="#6475A5"/>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme Mode="Dark"/>
+        <StyleInclude Source="/Styles/Icons.axaml"></StyleInclude>
+    </Application.Styles>
+</Application>

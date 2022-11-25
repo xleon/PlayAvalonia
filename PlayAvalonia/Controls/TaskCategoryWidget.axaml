@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PlayAvalonia.Controls.TaskCategoryWidget" 
+             ClipToBounds="False">
+    <Border
+        Background="White"
+        Width="200"
+        Padding="16,27,16,14"
+        CornerRadius="20"
+        BoxShadow="0 5 8 6 #15ACB4DC">
+        <StackPanel>
+            <TextBlock Text="40 tasks" />
+            <TextBlock Classes="H2" Text="Business" />
+            <Panel Margin="0,5,0,0">
+                <!-- progress bar background -->
+                <Border
+                    Height="4"
+                    Background="#ECEEFB" />
+                <!-- progress indicator bar -->
+                <Border
+                    BorderLineJoin="Round"
+                    BorderLineCap="Round"
+                    BoxShadow="0 6 16 0 #55DA10F5"
+                    Height="4"
+                    HorizontalAlignment="Left"
+                    Background="{StaticResource Accent}"
+                    Width="120" />
+                <!-- progress indicator bar end -->
+                <Border
+                    Height="8"
+                    Width="4"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="120,0,0,3"
+                    BorderLineCap="Round"
+                    BorderLineJoin="Round"
+                    Background="{StaticResource Accent}" />
+            </Panel>
+        </StackPanel>
+    </Border>
+</UserControl>

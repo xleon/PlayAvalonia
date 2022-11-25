@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="150"
+             x:Class="PlayAvalonia.Controls.AvatarProgress">
+    
+    <Panel>
+        <Arc
+            Width="90"
+            Height="90"
+            StartAngle="0"
+            Stroke="{StaticResource LightIconBrush}"
+            StrokeThickness="3"
+            SweepAngle="360"/>
+        <Arc
+            Width="90"
+            Height="90"
+            Stroke="{StaticResource Accent}"
+            StrokeThickness="3"
+            StrokeJoin="Round"
+            StartAngle="-90"
+            SweepAngle="140"/>
+        <Image
+            Source="/Assets/avatar.jpg"
+            Width="70"
+            Height="70"
+            RenderOptions.BitmapInterpolationMode="HighQuality">
+            <Image.Clip>
+                <EllipseGeometry Rect="0,0,70,70"></EllipseGeometry>
+            </Image.Clip>
+        </Image>
+    </Panel>
+</UserControl>
