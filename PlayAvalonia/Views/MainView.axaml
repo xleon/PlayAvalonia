@@ -102,7 +102,7 @@
                 <Style Selector="TextBlock.H3">
                     <Setter Property="LetterSpacing" Value="1.3" />
                     <Setter Property="FontWeight" Value="DemiBold" />
-                    <Setter Property="Margin" Value="30,35,30,20" />
+                    <Setter Property="Margin" Value="30,30,30,20" />
                 </Style>
 
                 <Style Selector="CheckBox.Task">
@@ -176,8 +176,8 @@
                     <TextBlock Classes="H1" Text="What's up, Kamila!" />
                     <TextBlock Classes="H3" Text="CATEGORIES" />
                     
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                        <StackPanel Orientation="Horizontal" Spacing="15">
+                    <ScrollViewer HorizontalScrollBarVisibility="Hidden" ClipToBounds="False" Padding="30,4,30,20" Height="140">
+                        <StackPanel Orientation="Horizontal" Spacing="15" ClipToBounds="False">
                             <controls:TaskCategoryWidget/>
                             <controls:TaskCategoryWidget/>
                             <controls:TaskCategoryWidget/>
